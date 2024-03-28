@@ -11,6 +11,7 @@ import StyleArea from "./Component/style/StyleArea";
 import firebase from "./firebase";
 import Login from "./Component/user/Login"
 import Register from "./Component/user/Register"
+import Survey from "./Component/Management/Survey";
 import SurveyList from "./Component/Management/SurveyList";
 
 import {Routes, Route} from "react-router-dom";
@@ -44,6 +45,7 @@ function App() {
              <Route path="/login" element={<Login/>} />
              <Route path="/register" element={<Register/>} />
              <Route path="/surveylist" element={<SurveyList/>}/>
+             <Route path="/survey" element={<Survey/>}/>
              <Route path="/*" element={<Main/>} />
          </Routes>
          <Footer/>

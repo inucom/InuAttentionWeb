@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "./user/Login";
 import {useSelector} from "react-redux";
-import Survey from "./Management/Survey";
+import Update from "./Management/Update";
 
 function Main() {
     const user = useSelector((state) => state.user);
@@ -14,7 +14,7 @@ function Main() {
     }
     return (
         <div>
-            <Survey/>
+            <Update/>
         </div>
     );
 }

@@ -21,9 +21,7 @@ function Heading() {
                            margin: "0 auto",
                        }}>
                 <Navbar.Brand href="/">InuAttention</Navbar.Brand>
-                {/*<Nav.Link href="/upload"*/}
-                {/*          style={{marginRight:"10px"}}*/}
-                {/*>Upload</Nav.Link>*/}
+                <Nav.Link href="/survey"   style={{marginRight:"10px"}}>Survey</Nav.Link>
                 {/*<Nav.Link href="/list">Styles</Nav.Link>*/}
                 <div className="d-flex justify-content-end align-items-center flex-grow-1"
                      style={{marginRight: "10px"}}
