@@ -49,6 +49,7 @@ function ImageUpload({ setImage }) {
 
     return (
         <div>
+            <h3>업로드한 이미지가 다 표시된 후 다음으로</h3>
             <Form.Control
                 type="file" multiple
                 className="shadow-none"
