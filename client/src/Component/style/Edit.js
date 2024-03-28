@@ -44,12 +44,8 @@ function Edit() {
             styleNum: params.styleNum,
             image: Image,
         }
-        axios.post("/api/style/edit", body, {
-            onUploadProgress: (progressEvent) => {
-                const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                setUploadProgress(percentCompleted);
-            }
-        }).then((res) => {
+        axios.post("/api/style/edit", body)
+            .then((res) => {
             if (res.data.success) {
                 alert("스타일 수정이 완료되었습니다.");
                 navigate(`/style/${params.styleNum}`);
@@ -64,15 +60,15 @@ function Edit() {
     return (
         <UploadDiv>
             <UploadForm>
-                <label htmlFor="label">제목</label>
+                <ImageUpload setImage={setImage}/>
+                <label htmlFor="label">Style Name</label>
                 <input
                     id="title"
                     type="text"
                     value={Title}
                     onChange={(event) =>
                         setTitle(event.currentTarget.value)}/>
-                <ImageUpload setImage={setImage} setUploadProgress={setUploadProgress}/> {/* 업로드 상태 전달 */}
-                <label htmlFor="content">내용 </label>
+                <label htmlFor="content">Description</label>
                 <textarea
                     id="content"
                     value={Content}
@@ -87,19 +83,12 @@ function Edit() {
                         }}>
                         취소
                     </button>
-                    <button disabled={uploadProgress !== 100} onClick={(e) => {
+                    <button onClick={(e) => {
                         onSubmit(e);
                     }}>
                         제출
                     </button>
                 </UploadButtonDiv>
-                {uploadProgress > 0 && uploadProgress < 100 && (
-                    <div className="progress">
-                        <div className="progress-bar" role="progressbar" style={{width: `${uploadProgress}%`}}
-                             aria-valuenow={uploadProgress} aria-valuemin="0" aria-valuemax="100">{uploadProgress}%
-                        </div>
-                    </div>
-                )}
             </UploadForm>
         </UploadDiv>
     )

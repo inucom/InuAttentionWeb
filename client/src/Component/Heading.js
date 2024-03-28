@@ -64,7 +64,7 @@ function Heading() {
                         {user.accessToken ? (
                             <>
                                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                                    <Nav.Link href="/upload">Upload</Nav.Link>
+                                    {/*<Nav.Link href="/upload">Upload</Nav.Link>*/}
                                     <Nav.Link href="/list">Styles</Nav.Link>
                                     <Nav.Link href="/">Help</Nav.Link>
                                     <Nav.Link href="/">Setting</Nav.Link>

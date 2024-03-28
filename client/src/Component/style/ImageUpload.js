@@ -1,35 +1,50 @@
-import React, { useState } from "react";
-import { Form, ProgressBar } from "react-bootstrap";
+import React, {useState} from "react";
+import {Form} from "react-bootstrap";
 import axios from "axios";
+import Resizer from "react-image-file-resizer";
 
-function ImageUpload({ setImage, setUploadProgress }) {
-    const [progress, setProgress] = useState(0);
-
-    const FileUpload = (e) => {
+function ImageUpload({ setImage }) {
+    const [ImageList, setImageList] = useState([]);
+    const resizeImages = (files) =>
+        Promise.all(
+            Array.from(files).map((file) =>
+                new Promise((resolve) => {
+                    Resizer.imageFileResizer(
+                        file,
+                        224, // maxwidth
+                        224, // maxheight
+                        "JPEG",
+                        100,
+                        0,
+                        (uri) => {
+                            resolve(uri);
+                        },
+                        "file"
+                    );
+                })
+            )
+        );
+    const uploadToServer = (files) => {
         const formData = new FormData();
-        for (let i = 0; i < e.target.files.length; i++) {
-            formData.append("files", e.target.files[i]);
-        }
-        if (e.target.files.length > 5) {
-            alert("최대 업로드 수는 5개입니다.");
-            return;
-        }
-        const config = {
-            onUploadProgress: (progressEvent) => {
-                const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                setProgress(percentCompleted);
-                if (percentCompleted === 100) {
-                    setUploadProgress(100);
-                    setTimeout(() => {
-                        setProgress(0);
-                    }, 2000);
-                }
-            }
-        };
-        axios.post("/api/style/image/upload", formData, config)
+        files.forEach((file) => {
+            formData.append("files", file);
+        });
+        axios.post("/api/style/image/upload", formData)
             .then((res) => {
                 setImage(res.data.filePaths);
+                setImageList(res.data.filePaths);
+            })
+            .catch((error) => {
+                console.error("Error uploading images: ", error);
             });
+    };
+    const FileUpload = async (e) => {
+        const resizedFiles = await resizeImages(e.target.files);
+        if (resizedFiles.length > 5) {
+            alert("이미지는 최대 5개까지 사용 가능합니다.");
+            return;
+        }
+        uploadToServer(resizedFiles);
     };
 
     return (
@@ -40,11 +55,13 @@ function ImageUpload({ setImage, setUploadProgress }) {
                 accept="image/*"
                 onChange={(e) => FileUpload(e)}
             />
-            {progress > 0 && (
-                <div className="mt-2">
-                    <ProgressBar now={progress} label={`${progress}%`} />
-                </div>
-            )}
+            {ImageList && ImageList.map((image, idx) => (
+                    <img
+                        src={image}
+                        alt={`${idx}`}
+                        style={{width: "224px", height: "224px", objectFit: "none"}}
+                    />
+            ))}
         </div>
     );
 }

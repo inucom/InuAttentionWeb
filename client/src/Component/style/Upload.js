@@ -9,7 +9,6 @@ function Upload() {
     const [Title, setTitle] = useState("");
     const [Content, setContent] = useState("");
     const [Image, setImage] = useState([]);
-    const [uploadProgress, setUploadProgress] = useState(0); // 업로드 진행률 상태 추가
     let navigate = useNavigate();
     const user = useSelector(state => state.user);
 
@@ -48,6 +47,7 @@ function Upload() {
     return (
         <UploadDiv>
             <UploadForm>
+                <ImageUpload setImage={setImage}/>
                 <label htmlFor="label">Style Name</label>
                 <input
                     id="title"
@@ -55,7 +55,6 @@ function Upload() {
                     value={Title}
                     onChange={(event) =>
                         setTitle(event.currentTarget.value)} />
-                <ImageUpload setImage={setImage} setUploadProgress={setUploadProgress} /> {/* 업로드 상태 전달 */}
                 <label htmlFor="content">Description</label>
                 <textarea
                     id="content"
@@ -63,7 +62,7 @@ function Upload() {
                     onChange={(event) =>
                         setContent(event.currentTarget.value)} />
                 <UploadButtonDiv>
-                    <button disabled={uploadProgress !== 100} onClick={(e) => {
+                    <button onClick={(e) => {
                         onSubmit(e);
                     }}>
                         제출

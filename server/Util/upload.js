@@ -23,7 +23,6 @@ function setUpload(bucket){
             s3: S3,
             bucket: bucket,
             acl: 'public-read-write',
-            //contentDisposition: 'attachment',
             key: function (req, file, cb) {
                 let extension = path.extname(file.originalname);
                 cb(null, Date.now().toString()+ extension);
@@ -32,7 +31,5 @@ function setUpload(bucket){
     }).array("files",5);
     return upload;
 }
-
-
 
 module.exports = setUpload;

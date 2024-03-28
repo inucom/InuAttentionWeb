@@ -5,6 +5,7 @@ const {User} = require("../Model/User");
 const {Tts} = require("../Model/Tts");
 const router = express.Router();
 const setUpload = require("../Util/upload");
+const sharp = require('sharp');
 
 router.post("/submit", (req, res) => {
     let temp = {
@@ -88,11 +89,9 @@ router.post("/delete", async (req, res) => {
         res.status(400).json({ success: false });
     }
 });
-
 router.post("/image/upload", setUpload("inu-attention/style"), (req, res) => {
-        const filePaths = req.files.map(file => file.location);
-        res.status(200).json({success: true, filePaths});
-    });
-
+    const filePaths = req.files.map(file => file.location);
+    res.status(200).json({success: true, filePaths});
+});
 
 module.exports = router;
