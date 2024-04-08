@@ -7,7 +7,8 @@ import Main from "./Component/Main"
 import Upload from "./Component/style/Upload";
 import Edit from "./Component/style/Edit";
 import StyleArea from "./Component/style/StyleArea";
-import VCList from "./Component/VoiceClone/VCList";
+// import VCList from "./Component/VoiceClone/VCList";
+import TestArea from "./Component/TestArea/TestArea";
 
 import firebase from "./firebase";
 import Login from "./Component/user/Login"
@@ -16,6 +17,8 @@ import Survey from "./Component/Management/Survey";
 import SurveyList from "./Component/Management/SurveyList";
 import Tutorial from "./Component/Management/Tutorial";
 import FAQ from "./Component/Management/FAQ";
+import Update from "./Component/Management/Update";
+import PrivateRoute from "./PrivateRoute";
 
 import {Routes, Route} from "react-router-dom";
 import {loginUser,clearUser} from "./Reducer/userSlice";
@@ -41,18 +44,23 @@ function App() {
      <>
          <Heading/>
          <Routes>
+             <Route element={<PrivateRoute/>}>
              <Route path="/upload" element={<Upload/>} />
              <Route path="/list" element={<List/>} />
              <Route path="/style/:styleNum" element={<StyleArea/>} />
              <Route path="/edit/:styleNum" element={<Edit/>} />
-             <Route path="/voice-clone" element={<VCList/>}/>
-             <Route path="/login" element={<Login/>} />
+             {/*<Route path="/voice-clone" element={<VCList/>}/>*/}
+             <Route path="/voice-clone" element={<TestArea/>}/>
              <Route path="/register" element={<Register/>} />
              <Route path="/surveylist" element={<SurveyList/>}/>
              <Route path="/survey" element={<Survey/>}/>
+             <Route path="/*" element={<Main/>} />
+             </Route>
+             <Route path="/" element={<Main/>} />
+             <Route path="/login" element={<Login/>} />
              <Route path="/tutorial" element={<Tutorial/>}/>
              <Route path="/faq" element={<FAQ/>}/>
-             <Route path="/*" element={<Main/>} />
+             <Route path="/update" element={<Update/>}/>
          </Routes>
          <Footer/>
      </>

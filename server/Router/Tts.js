@@ -10,11 +10,12 @@ router.post("/submit", async (req, res) => {
             styleId:req.body.styleId,
         }
         const NewTts = new Tts(temp);
-        await NewTts.save();
-        await Style.findOneAndUpdate(
+        const style = await Style.findOneAndUpdate(
             { _id: req.body.styleId },
             { $inc: { ttsNum: 1 } }
         ).exec();
+        NewTts.ttsNum = style.ttsNum;
+        await NewTts.save();
         return res.status(200).json({ success: true });
     } catch (err) {
         console.error(err);
@@ -61,15 +62,10 @@ router.post("/delete", (req,res)=>{
     }
     Tts.deleteOne({_id:req.body.ttsId}).exec()
         .then(()=>{
-            Style.findOneAndUpdate(
-                { _id: req.body.styleId },
-                { $inc: { ttsNum: -1 } }
-            ).exec().then(()=>{
                 return res.status(200).json({
                     success: true,
                 })
-            })
-        }).catch(()=>{
+            }).catch(()=>{
         return res.status(400).json({
             success: false,
         })

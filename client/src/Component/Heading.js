@@ -26,6 +26,7 @@ function Heading() {
                 <Nav.Link href="/survey"   style={{marginRight:"20px"}}>Survey</Nav.Link>
                 <Nav.Link href="/tutorial"   style={{marginRight:"20px"}}>Tutorial</Nav.Link>
                 <Nav.Link href="/faq"   style={{marginRight:"20px"}}>FAQ</Nav.Link>
+                <Nav.Link href="/update"   style={{marginRight:"20px"}}>Update</Nav.Link>
 
                 {/*<Nav.Link href="/list">Styles</Nav.Link>*/}
                 <div className="d-flex justify-content-end align-items-center flex-grow-1"
@@ -68,9 +69,7 @@ function Heading() {
                             <>
                                 <Nav className="justify-content-end flex-grow-1 pe-3">
                                     {/*<Nav.Link href="/upload">Upload</Nav.Link>*/}
-                                    <Nav.Link href="/list">Styles</Nav.Link>
-                                    <Nav.Link href="/">Help</Nav.Link>
-                                    <Nav.Link href="/">Setting</Nav.Link>
+                                    삭제 예정
                                 </Nav>
                             </>
                         ) : (

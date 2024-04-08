@@ -27,7 +27,7 @@ function SurveyList() {
                 margin:"0 auto",
             }}>
                 <h1>Unauthorized</h1>
-                <p>You are not authorized to read this style.</p>
+                <p>You are not authorized to read this.</p>
                 <Button variant="dark"
                         style={{marginTop: '20px'}}
                         onClick={(e) => {
