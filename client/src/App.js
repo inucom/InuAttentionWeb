@@ -51,13 +51,13 @@ function App() {
              <Route path="/edit/:styleNum" element={<Edit/>} />
              {/*<Route path="/voice-clone" element={<VCList/>}/>*/}
              <Route path="/voice-clone" element={<TestArea/>}/>
-             <Route path="/register" element={<Register/>} />
              <Route path="/surveylist" element={<SurveyList/>}/>
              <Route path="/survey" element={<Survey/>}/>
              <Route path="/*" element={<Main/>} />
              </Route>
              <Route path="/" element={<Main/>} />
              <Route path="/login" element={<Login/>} />
+             <Route path="/register" element={<Register/>} />
              <Route path="/tutorial" element={<Tutorial/>}/>
              <Route path="/faq" element={<FAQ/>}/>
              <Route path="/update" element={<Update/>}/>
