@@ -21,7 +21,7 @@ function Heading() {
                            margin: "0 auto",
                        }}>
                 <Navbar.Brand href="/">InuAttention</Navbar.Brand>
-                <Nav.Link href="/list"   style={{marginRight:"20px"}}>Styles</Nav.Link>
+                <Nav.Link href="/list"   style={{marginRight:"20px"}}>Image2Voice</Nav.Link>
                 <Nav.Link href="/voice-clone"   style={{marginRight:"20px"}}>Voice Clone</Nav.Link>
                 <Nav.Link href="/survey"   style={{marginRight:"20px"}}>Survey</Nav.Link>
                 <Nav.Link href="/tutorial"   style={{marginRight:"20px"}}>Tutorial</Nav.Link>

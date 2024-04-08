@@ -32,11 +32,11 @@ function List() {
             boxSizing: "border-box",
         }}>
             <h3 style={{
-                maxWidth: "907px",
+                maxWidth: "976px",
                 margin: "0 auto",
                 marginBottom: "20px",
             }}
-            >Styles</h3>
+            >Voice Styles</h3>
             <div className="scrollBarList"
                  style={{
                      display: 'flex',
