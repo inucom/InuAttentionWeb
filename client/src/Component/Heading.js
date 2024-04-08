@@ -24,8 +24,8 @@ function Heading() {
                 <Nav.Link href="/list"   style={{marginRight:"20px"}}>Styles</Nav.Link>
                 <Nav.Link href="/voice-clone"   style={{marginRight:"20px"}}>Voice Clone</Nav.Link>
                 <Nav.Link href="/survey"   style={{marginRight:"20px"}}>Survey</Nav.Link>
-                <Nav.Link href="/"   style={{marginRight:"20px"}}>Tutorial</Nav.Link>
-                <Nav.Link href="/"   style={{marginRight:"20px"}}>FAQ</Nav.Link>
+                <Nav.Link href="/tutorial"   style={{marginRight:"20px"}}>Tutorial</Nav.Link>
+                <Nav.Link href="/faq"   style={{marginRight:"20px"}}>FAQ</Nav.Link>
 
                 {/*<Nav.Link href="/list">Styles</Nav.Link>*/}
                 <div className="d-flex justify-content-end align-items-center flex-grow-1"

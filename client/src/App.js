@@ -14,6 +14,8 @@ import Login from "./Component/user/Login"
 import Register from "./Component/user/Register"
 import Survey from "./Component/Management/Survey";
 import SurveyList from "./Component/Management/SurveyList";
+import Tutorial from "./Component/Management/Tutorial";
+import FAQ from "./Component/Management/FAQ";
 
 import {Routes, Route} from "react-router-dom";
 import {loginUser,clearUser} from "./Reducer/userSlice";
@@ -43,11 +45,13 @@ function App() {
              <Route path="/list" element={<List/>} />
              <Route path="/style/:styleNum" element={<StyleArea/>} />
              <Route path="/edit/:styleNum" element={<Edit/>} />
+             <Route path="/voice-clone" element={<VCList/>}/>
              <Route path="/login" element={<Login/>} />
              <Route path="/register" element={<Register/>} />
              <Route path="/surveylist" element={<SurveyList/>}/>
              <Route path="/survey" element={<Survey/>}/>
-             <Route path="/voice-clone" element={<VCList/>}/>
+             <Route path="/tutorial" element={<Tutorial/>}/>
+             <Route path="/faq" element={<FAQ/>}/>
              <Route path="/*" element={<Main/>} />
          </Routes>
          <Footer/>
