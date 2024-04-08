@@ -56,13 +56,19 @@ function ImageUpload({ setImage }) {
                 accept="image/*"
                 onChange={(e) => FileUpload(e)}
             />
-            {ImageList && ImageList.map((image, idx) => (
-                    <img
-                        src={image}
-                        alt={`${idx}`}
-                        style={{width: "224px", height: "224px", objectFit: "none"}}
-                    />
-            ))}
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+                {Array.from({ length: 5 }).map((_, idx) => (
+                    <div key={idx} style={{ width: "184px", height: "184px", border: "1px solid black", margin: "4px" }}>
+                        {ImageList[idx] && (
+                            <img
+                                src={ImageList[idx]}
+                                alt={`${idx}`}
+                                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                            />
+                        )}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

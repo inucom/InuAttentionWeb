@@ -5,7 +5,6 @@ const {User} = require("../Model/User");
 const {Tts} = require("../Model/Tts");
 const router = express.Router();
 const setUpload = require("../Util/upload");
-const sharp = require('sharp');
 
 router.post("/submit", (req, res) => {
     let temp = {

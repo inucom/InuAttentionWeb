@@ -66,7 +66,7 @@ function List() {
                 <div style={{marginBottom: '20px', width: '224px', marginRight: '10px', marginLeft: '10px'}}>
 
                         <Card>
-                            <Card.Img variant="top" src="" style={{objectFit: "cover", height: "224px"}}/>
+                            <Card.Img variant="top" src="https://kr.object.ncloudstorage.com/inu-attention/holder/add-image.png" style={{objectFit: "cover", height: "224px"}}/>
                             <Card.Body>
                                 <Card.Title>Add new Style</Card.Title>
                                 <Link to="/upload">
