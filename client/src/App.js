@@ -7,8 +7,7 @@ import Main from "./Component/Main"
 import Upload from "./Component/style/Upload";
 import Edit from "./Component/style/Edit";
 import StyleArea from "./Component/style/StyleArea";
-// import VCList from "./Component/VoiceClone/VCList";
-import TestArea from "./Component/TestArea/TestArea";
+import VoiceCloneArea from "./Component/VoiceClone/VoiceCloneArea";
 
 import firebase from "./firebase";
 import Login from "./Component/user/Login"
@@ -49,8 +48,7 @@ function App() {
              <Route path="/list" element={<List/>} />
              <Route path="/style/:styleNum" element={<StyleArea/>} />
              <Route path="/edit/:styleNum" element={<Edit/>} />
-             {/*<Route path="/voice-clone" element={<VCList/>}/>*/}
-             <Route path="/voice-clone" element={<TestArea/>}/>
+             <Route path="/voice-clone" element={<VoiceCloneArea/>}/>
              <Route path="/surveylist" element={<SurveyList/>}/>
              <Route path="/survey" element={<Survey/>}/>
              <Route path="/*" element={<Main/>} />

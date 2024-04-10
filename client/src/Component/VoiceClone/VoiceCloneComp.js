@@ -1,7 +1,7 @@
 import React from "react";
-import "./TestComp.css";
+import "./VoiceClone.css";
 
-function TestComp() {
+function VoiceCloneComp() {
 
     return (
         <div className="formbold-main-wrapper">
@@ -51,4 +51,4 @@ function TestComp() {
     );
 }
 
-export default TestComp;
+export default VoiceCloneComp;
