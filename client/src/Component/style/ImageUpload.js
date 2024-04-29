@@ -68,19 +68,19 @@ function ImageUpload({ setImage }) {
                     <span className="formbold-browse"> Browse </span>
                 </div>
             </label>
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
-                {Array.from({ length: 5 }).map((_, idx) => (
-                    <div key={idx} style={{ width: "184px", height: "184px", border: "1px solid black", margin: "4px" }}>
-                        {imageList[idx] && (
-                            <img
-                                src={imageList[idx]}
-                                alt={`${idx}`}
-                                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                            />
-                        )}
-                    </div>
-                ))}
-            </div>
+            {/*<div style={{ display: "flex", flexWrap: "wrap" }}>*/}
+            {/*    {Array.from({ length: 5 }).map((_, idx) => (*/}
+            {/*        <div key={idx} style={{ width: "184px", height: "184px", border: "1px solid black", margin: "4px" }}>*/}
+            {/*            {imageList[idx] && (*/}
+            {/*                <img*/}
+            {/*                    src={imageList[idx]}*/}
+            {/*                    alt={`${idx}`}*/}
+            {/*                    style={{ width: "100%", height: "100%", objectFit: "cover" }}*/}
+            {/*                />*/}
+            {/*            )}*/}
+            {/*        </div>*/}
+            {/*    ))}*/}
+            {/*</div>*/}
         </div>
     );
 }

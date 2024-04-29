@@ -46,7 +46,7 @@ function Upload() {
     return (
         <div className="formbold-main-wrapper">
             <div className="formbold-form-wrapper">
-                <form action="https://formbold.com/s/FORM_ID" method="POST">
+                <form>
                     <label className="formbold-form-label formbold-form-label-3">
                         Image2Voice
                     </label>
@@ -68,10 +68,8 @@ function Upload() {
                         </label>
                         <ImageUpload setImage={setImage}/>
                     </div>
-                    <button onClick={(e) => {
-                        onSubmit(e);}} className="formbold-form-submit">
-                        제출
-                    </button>
+                    <span onClick={(e) => {
+                        onSubmit(e);}} className="formbold-browse">Generate</span>
                 </form>
             </div>
         </div>
