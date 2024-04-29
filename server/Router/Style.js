@@ -5,31 +5,71 @@ const {User} = require("../Model/User");
 const {Tts} = require("../Model/Tts");
 const router = express.Router();
 const setUpload = require("../Util/upload");
+const axios = require("axios");
 
-router.post("/submit", (req, res) => {
+// router.post("/submit", (req, res) => {
+//     let temp = {
+//         title:req.body.title,
+//         image : req.body.image,
+//     };
+//     Counter.findOne({name: "counter"})
+//         .exec()
+//         .then((counter) => {
+//             temp.styleNum = counter.styleNum;
+//             User.findOne({uid:req.body.uid}).exec().then((userInfo)=>{
+//                 temp.author = userInfo._id;
+//                 const VoiceStyle = new Style(temp);
+//                 VoiceStyle.save().then(() => {
+//                     Counter.updateOne(
+//                         {name: "counter"},
+//                         {$inc: {styleNum: 1}})
+//                         .then(() => {
+//                                 res.status(200).json({success: true});
+//                             }
+//                         );
+//                 });
+//             })
+//         })
+//         .catch((err) => {
+//             res.status(400).json({success: false});
+//         });
+// });
+router.post("/submit", async (req, res) => {
     let temp = {
         title:req.body.title,
-        content:req.body.content,
         image : req.body.image,
     };
-    Counter.findOne({name: "counter"})
-        .exec()
-        .then((counter) => {
-            temp.styleNum = counter.styleNum;
-            User.findOne({uid:req.body.uid}).exec().then((userInfo)=>{
-                temp.author = userInfo._id;
-                const VoiceStyle = new Style(temp);
-                VoiceStyle.save().then(() => {
-                    Counter.updateOne(
-                        {name: "counter"},
-                        {$inc: {styleNum: 1}})
-                        .then(() => {
-                                res.status(200).json({success: true});
-                            }
-                        );
-                });
-            })
+    //console.log(temp);
+    const data = {
+        images : req.body.image,
+        title : req.body.title,
+        statusCode : 1
+    };
+    // console.log(data);
+    axios.post('http://127.0.0.1:5000/', data)
+        .then(response => {
+            console.log('생성된 스타일 벡터 :', response.data);
+            temp.voiceVector = response.data;
+            Counter.findOne({name: "counter"})
+                .exec()
+                .then((counter) => {
+                    temp.styleNum = counter.styleNum;
+                    User.findOne({uid:req.body.uid}).exec().then((userInfo)=>{
+                        temp.author = userInfo._id;
+                        const VoiceStyle = new Style(temp);
+                        VoiceStyle.save().then(() => {
+                            Counter.updateOne(
+                                {name: "counter"},
+                                {$inc: {styleNum: 1}})
+                                .then(() => {
+                                        res.status(200).json({success: true});
+                                    }
+                                );
+                        });
+                    })
+                })
         })
+
         .catch((err) => {
             res.status(400).json({success: false});
         });
@@ -60,7 +100,6 @@ router.post("/detail", (req, res) => {
 router.post("/edit", (req, res) => {
     let temp = {
         title: req.body.title,
-        content: req.body.content,
         image: req.body.image,
     };
     Style.updateOne({styleNum: Number(req.body.styleNum)}, {$set: temp})

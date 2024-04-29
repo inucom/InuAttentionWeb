@@ -66,7 +66,7 @@ function Detail(props) {
                         whiteSpace: "nowrap"
                     }}>
                     </div>
-                    <p>{props.StyleInfo.content}</p>
+                    {/*<p>{props.StyleInfo.content}</p>*/}
                 </TtsContentDiv>
                 {props.StyleInfo.image && props.StyleInfo.image.map((image, index) => (
                     <div key={index} style={{

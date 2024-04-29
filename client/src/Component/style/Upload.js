@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { UploadButtonDiv, UploadDiv, UploadForm } from "../../StyleCSS/UploadCSS";
-import ImageUpload from "./ImageUpload";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import ImageUpload from "./ImageUpload";
+import '../VoiceClone/VoiceClone.css';
 
 function Upload() {
     const [Title, setTitle] = useState("");
-    const [Content, setContent] = useState("");
     const [Image, setImage] = useState([]);
     let navigate = useNavigate();
     const user = useSelector(state => state.user);
@@ -21,22 +20,22 @@ function Upload() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if (Title === "" || Content === "") {
+        if (Title === "") {
             return alert("모든 항목을 채워주세요");
         }
         let body = {
             title: Title,
-            content: Content,
             image: Image,
             uid: user.uid,
         };
+        //console.log(body);
         axios.post("/api/style/submit", body)
             .then((res) => {
                 if (res.data.success) {
-                    alert("글 작성이 완료되었습니다.");
+                    alert("스타일 생성에 성공하였습니다.");
                     navigate("/list");
                 } else {
-                    alert("글 작성에 실패했습니다.");
+                    alert("스타일 생성에 실패했습니다.");
                 }
             })
             .catch((err) => {
@@ -45,31 +44,38 @@ function Upload() {
     };
 
     return (
-        <UploadDiv>
-            <UploadForm>
-                <ImageUpload setImage={setImage}/>
-                <label htmlFor="label">Style Name</label>
-                <input
-                    id="title"
-                    type="text"
-                    value={Title}
-                    onChange={(event) =>
-                        setTitle(event.currentTarget.value)} />
-                <label htmlFor="content">Description</label>
-                <textarea
-                    id="content"
-                    value={Content}
-                    onChange={(event) =>
-                        setContent(event.currentTarget.value)} />
-                <UploadButtonDiv>
+        <div className="formbold-main-wrapper">
+            <div className="formbold-form-wrapper">
+                <form action="https://formbold.com/s/FORM_ID" method="POST">
+                    <label className="formbold-form-label formbold-form-label-3">
+                        Image2Voice
+                    </label>
+                    <div className="formbold-mb-5">
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            placeholder="Enter Style Title"
+                            className="formbold-form-input"
+                            value={Title}
+                            onChange={(event) => setTitle(event.currentTarget.value)}
+                        />
+                    </div>
+
+                    <div className="mb-6 pt-4">
+                        <label className="formbold-form-label formbold-form-label-2">
+                            Upload Images
+                        </label>
+                        <ImageUpload setImage={setImage}/>
+                    </div>
                     <button onClick={(e) => {
-                        onSubmit(e);
-                    }}>
+                        onSubmit(e);}} className="formbold-form-submit">
                         제출
                     </button>
-                </UploadButtonDiv>
-            </UploadForm>
-        </UploadDiv>
+                </form>
+            </div>
+        </div>
+
     )
 }
 

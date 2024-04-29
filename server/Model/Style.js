@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const styleSchema = new mongoose.Schema({
     title:String,
-    content:String,
     styleNum:Number,
     image:[String],
     author:{

@@ -17,7 +17,7 @@ function VoiceCloneComp() {
                             name="email"
                             id="email"
                             placeholder="Enter Style Title"
-                            className="formbold-form-input"
+                            className="formbold-form-input"s    
                         />
                     </div>
 
