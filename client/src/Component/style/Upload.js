@@ -47,9 +47,18 @@ function Upload() {
         <div className="formbold-main-wrapper">
             <div className="formbold-form-wrapper">
                 <form>
+                    <div style={{
+                        display:"flex",
+                        justifyContent:"space-between"
+                    }}>
                     <label className="formbold-form-label formbold-form-label-3">
                         Image2Voice
                     </label>
+                        <div>
+                    <span onClick={(e) => {
+                        onSubmit(e);}} className="formbold-browse">Generate</span>
+                        </div>
+                    </div>
                     <div className="formbold-mb-5">
                         <input
                             type="text"
@@ -61,15 +70,15 @@ function Upload() {
                             onChange={(event) => setTitle(event.currentTarget.value)}
                         />
                     </div>
-
                     <div className="mb-6 pt-4">
                         <label className="formbold-form-label formbold-form-label-2">
                             Upload Images
                         </label>
+
                         <ImageUpload setImage={setImage}/>
                     </div>
-                    <span onClick={(e) => {
-                        onSubmit(e);}} className="formbold-browse">Generate</span>
+
+
                 </form>
             </div>
         </div>

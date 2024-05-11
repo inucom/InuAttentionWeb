@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Resizer from "react-image-file-resizer";
+import PacmanLoader from "react-spinners/PacmanLoader"
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {Carousel} from "react-responsive-carousel";
 
 function ImageUpload({ setImage }) {
     const [imageList, setImageList] = useState([]);
+    const [flag,setFlag] = useState(false);
 
     const resizeImages = (files) =>
         Promise.all(
@@ -26,6 +30,7 @@ function ImageUpload({ setImage }) {
         );
 
     const uploadToServer = (files) => {
+        setFlag(true);
         const formData = new FormData();
         files.forEach((file) => {
             formData.append("files", file);
@@ -35,9 +40,11 @@ function ImageUpload({ setImage }) {
             .then((res) => {
                 setImage(res.data.filePaths);
                 setImageList(res.data.filePaths);
+                setFlag(false);
             })
             .catch((error) => {
                 console.error("Error uploading images: ", error);
+                setFlag(false);
             });
     };
 
@@ -60,6 +67,22 @@ function ImageUpload({ setImage }) {
 
     return (
         <div className="formbold-mb-5 formbold-file-input">
+            {flag && <div className="spinner">
+                <PacmanLoader
+                    color="#36d7b7"
+                    size={50}
+                /></div>}
+            <Carousel>
+                {imageList.map((image, index) => (
+                    <div key={index} style={{height: "224px" }}>
+                        <img src={image} alt={`${index + 1}`} style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "contain",
+                        }}/>
+                    </div>
+                ))}
+            </Carousel>
             <input type="file" name="file" id="file" accept="image/*" onChange={(e) => fileUploadHandler(e)} multiple />
             <label htmlFor="file">
                 <div>
@@ -68,19 +91,8 @@ function ImageUpload({ setImage }) {
                     <span className="formbold-browse"> Browse </span>
                 </div>
             </label>
-            {/*<div style={{ display: "flex", flexWrap: "wrap" }}>*/}
-            {/*    {Array.from({ length: 5 }).map((_, idx) => (*/}
-            {/*        <div key={idx} style={{ width: "184px", height: "184px", border: "1px solid black", margin: "4px" }}>*/}
-            {/*            {imageList[idx] && (*/}
-            {/*                <img*/}
-            {/*                    src={imageList[idx]}*/}
-            {/*                    alt={`${idx}`}*/}
-            {/*                    style={{ width: "100%", height: "100%", objectFit: "cover" }}*/}
-            {/*                />*/}
-            {/*            )}*/}
-            {/*        </div>*/}
-            {/*    ))}*/}
-            {/*</div>*/}
+            <hr/>
+
         </div>
     );
 }

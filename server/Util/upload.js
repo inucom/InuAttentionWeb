@@ -16,16 +16,17 @@ const S3 = new AWS.S3({
         secretAccessKey: config.secret_key
     }
 });
-
+let count = 0;
 function setUpload(bucket){
-    const upload = multer({
+    let upload = multer({
         storage: multerS3({
             s3: S3,
             bucket: bucket,
             acl: 'public-read-write',
             key: function (req, file, cb) {
                 let extension = path.extname(file.originalname);
-                cb(null, Date.now().toString()+ extension);
+                count++;
+                cb(null, Date.now().toString()+'A' + count+ extension);
             }
         })
     }).array("files",5);
