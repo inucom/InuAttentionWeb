@@ -74,7 +74,6 @@ function Upload() {
                         <label className="formbold-form-label formbold-form-label-2">
                             Upload Images
                         </label>
-
                         <ImageUpload setImage={setImage}/>
                     </div>
 

@@ -23,16 +23,18 @@ function TTSUpload(props) {
     }
 
     return (
-        <TtsUploadDiv>
-        <form>
-            <input type="text" value={Text}
-            onChange={(e)=>{
-                setText(e.currentTarget.value);
-            }}
+        <div className="formbold-mb-5 flex">
+            <input
+                type="text"
+                placeholder="Enter Text"
+                className="formbold-form-input"
+                value={Text}
+                onChange={(e)=>{
+                    setText(e.currentTarget.value);
+                }}
             />
-            <button onClick={submitHandler}>생성</button>
-        </form>
-        </TtsUploadDiv>
+            <span className="formbold-browse" onClick={submitHandler}>AI</span>
+        </div>
     )
 }
 

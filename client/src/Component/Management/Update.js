@@ -1,17 +1,21 @@
 import React from "react";
-import "../../StyleCSS/styles.css";
+import "./update.css";
 
 function Update() {
 
     return (
-        <div>
-            3월 28일 업데이트 : 이미지 리사이징 추가
-            <br/>
-            4월 08일 업데이트 : style 페이지 수정, voice clone 페이지 구성
-            <br/>
-            4월 09일 업데이트 : 페이지 접근 권한 수정
-            <br/>
-            4월 10일 업데이트 : Menu 수정, tts데이터모델 수정
+        <div className="container">
+            <div className="left">
+                left
+            </div>
+            <div className="right">
+                <div>
+                    right1
+                </div>
+                <div>
+                    right2
+                </div>
+            </div>
         </div>
     );
 }

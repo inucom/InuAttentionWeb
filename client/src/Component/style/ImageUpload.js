@@ -91,8 +91,6 @@ function ImageUpload({ setImage }) {
                     <span className="formbold-browse"> Browse </span>
                 </div>
             </label>
-            <hr/>
-
         </div>
     );
 }

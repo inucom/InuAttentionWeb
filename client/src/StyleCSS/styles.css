@@ -21,7 +21,7 @@
 }
 
 .scrollBar {
-    height: 300px; /* 스크롤이 필요한 영역의 높이 설정 */
+    height: 80%; /* 스크롤이 필요한 영역의 높이 설정 */
     overflow-y: scroll; /* 세로 스크롤바만 표시 */
 }
 

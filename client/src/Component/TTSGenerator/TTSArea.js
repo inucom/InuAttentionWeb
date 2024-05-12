@@ -6,10 +6,10 @@ import { TtsAreaDiv } from "../../StyleCSS/TTSCSS.js";
 function TTSArea(props) {
 
     return (
-        <TtsAreaDiv>
+        <div>
             <TTSUpload styleId={props.styleId}/>
             <TTSList styleId={props.styleId}/>
-        </TtsAreaDiv>
+        </div>
     )
 }
 

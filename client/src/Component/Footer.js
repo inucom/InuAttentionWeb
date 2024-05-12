@@ -3,13 +3,10 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer >
-            <div className="container mx-auto text-center">
-                <p className="text-sm">
+            <div className="mx-auto text-center">
+
                     &copy; {new Date().getFullYear()} InuAttention. All rights reserved.
-                </p>
-                <p className="text-sm mt-2">
-                    Contact us at inuattention@gmail.com
-                </p>
+
             </div>
         </footer>
     );

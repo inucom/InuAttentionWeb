@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+}
+.left {
+    width: 35%;
+    background-color: white;
+}
+.right {
+    width: 65%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.right > div {
+    flex: 1;
+    border: 0px solid black;
+    margin: 5px;
+}
