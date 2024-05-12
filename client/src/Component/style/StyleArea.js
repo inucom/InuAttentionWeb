@@ -51,10 +51,10 @@ function StyleArea() {
                     </div>
                 ) : (
                     <div className="container">
-                        <div className="left">
+                        <div className="left40">
                             <Detail StyleInfo={StyleInfo}/>
                         </div>
-                        <div className="right">
+                        <div className="right60">
                             <TTSArea styleId={StyleInfo._id}/>
                         </div>
                     </div>

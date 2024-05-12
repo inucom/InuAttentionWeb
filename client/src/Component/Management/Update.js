@@ -1,5 +1,5 @@
 import React from "react";
-import "./update.css";
+import "../../StyleCSS/Grid.css";
 
 function Update() {
 

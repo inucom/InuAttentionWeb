@@ -6,6 +6,8 @@ import {StyleDiv} from "../../StyleCSS/StyleDetailCSS";
 import {TtsContentDiv} from "../../StyleCSS/TTSCSS";
 import {useClickAway} from "@uidotdev/usehooks";
 import Button from "react-bootstrap/Button";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {Carousel} from "react-responsive-carousel";
 
 function Detail(props) {
     const [ModalFlag, setModalFlag] = useState(false);
@@ -45,7 +47,7 @@ function Detail(props) {
                 <TtsContentDiv>
                     <div className="modalControl">
                         <h1>{props.StyleInfo.title}</h1>
-                        <Button onClick={handleOpenModal}>Δ</Button>
+                        <h1><span onClick={handleOpenModal}>···</span></h1>
                         {ModalFlag && (
                             <div className="modalDiv" ref={ref}>
                                 <Link to={`/edit/${props.StyleInfo.styleNum}`}>
@@ -68,23 +70,17 @@ function Detail(props) {
                     </div>
                     {/*<p>{props.StyleInfo.content}</p>*/}
                 </TtsContentDiv>
-                {props.StyleInfo.image && props.StyleInfo.image.map((image, index) => (
-                    <div key={index} style={{
-                        display: "inline-block",
-                        width: "200px",
-                        height: "200px",
-                        overflow: "hidden",
-                        marginRight: "10px",
-                        marginBottom: "10px",
-                        backgroundColor: "white"
-                    }}>
-                        <img
-                            src={image}
-                            alt={`${index}`}
-                            style={{width: "100%", height: "auto", objectFit: "contain"}}
-                        />
-                    </div>
-                ))}
+                    <Carousel>
+                        {props.StyleInfo.image && props.StyleInfo.image.map((image, index) => (
+                            <div key={index} style={{height: "224px" }}>
+                                <img src={image} alt={`${index + 1}`} style={{
+                                    width: "100%",
+                                    height: "100%",
+                                    objectFit: "contain",
+                                }}/>
+                            </div>
+                        ))}
+                    </Carousel>
             </>
         </StyleDiv>
     );

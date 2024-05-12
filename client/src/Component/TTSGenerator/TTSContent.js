@@ -30,8 +30,8 @@ function TTSContent(props) {
             <TtsContentDiv>
                             <div className="modalControl">
                                 <p>{props.tts.text}</p>
-                                <Button className="delete" onClick={(e)=>
-                                    DeleteHandler(e)}>삭제</Button>
+                                <h4><span className="delete" onClick={(e)=>
+                                    DeleteHandler(e)}>🗑</span></h4>
                             </div>
                 <audio src="https://ccrma.stanford.edu/~jos/mp3/harpsi-cs.mp3" controls
                 style={{ width: '100%',
