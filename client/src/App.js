@@ -14,9 +14,9 @@ import Login from "./Component/user/Login"
 import Register from "./Component/user/Register"
 import Survey from "./Component/Management/Survey";
 import SurveyList from "./Component/Management/SurveyList";
-import Tutorial from "./Component/Management/Tutorial";
-import FAQ from "./Component/Management/FAQ";
+import Tutorial from "./tutorial/js/tutorial";
 import Update from "./Component/Management/Update";
+import FAQ from "./Component/Management/FAQ";
 import PrivateRoute from "./PrivateRoute";
 
 import {Routes, Route} from "react-router-dom";
@@ -56,9 +56,9 @@ function App() {
              <Route path="/" element={<Main/>} />
              <Route path="/login" element={<Login/>} />
              <Route path="/register" element={<Register/>} />
+             <Route path="/update" element={<Update/>}/>
              <Route path="/tutorial" element={<Tutorial/>}/>
              <Route path="/faq" element={<FAQ/>}/>
-             <Route path="/update" element={<Update/>}/>
          </Routes>
          <Footer/>
      </>

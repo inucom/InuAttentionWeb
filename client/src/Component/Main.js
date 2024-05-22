@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../StyleCSS/Grid.css";
+
 function Main() {
     return (
         <>

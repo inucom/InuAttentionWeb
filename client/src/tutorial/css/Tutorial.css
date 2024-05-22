@@ -1,0 +1,41 @@
+.tutorial-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tutorial-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4%;
+}
+
+.tutorial-header p {
+    font-size: 60px;
+    font-weight: 600;
+    margin-bottom: 3%;
+}
+.tutorial-headerBtns {
+    display: flex;
+    flex-direction: row;
+}
+
+.tutorial-headerBtns button {
+    margin: 0 30px;
+
+    font-size: 24px;
+    opacity: 0.4;
+    border: none;
+    background-color: white;
+}
+
+.tutorial-headerBtns button:hover {
+    cursor: pointer;
+}
+
+.tutorial-headerBtns button:focus,
+.tutorial-headerBtns button:active {
+    font-weight: 500;
+    opacity: 0.8;
+}

@@ -5,9 +5,9 @@ import {StyleDiv} from "../../StyleCSS/StyleDetailCSS";
 
 import {TtsContentDiv} from "../../StyleCSS/TTSCSS";
 import {useClickAway} from "@uidotdev/usehooks";
-import Button from "react-bootstrap/Button";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from "react-responsive-carousel";
+import "../../StyleCSS/Grid.css";
 
 function Detail(props) {
     const [ModalFlag, setModalFlag] = useState(false);
