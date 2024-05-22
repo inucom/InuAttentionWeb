@@ -1,5 +1,5 @@
 .Tutorial-container {
-    width: 100vw;
+    /*width: 100vw;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,43 +9,51 @@
 }
 
 .Tutorial-column:first-child {
-    width: 40%;
+    width: 75%;
     margin-left: 5%;
 }
 
 .Tutorial-column:first-child p:first-child {
-    font-size: 34px;
+    font-size: 26px;
     font-weight: 600;
     opacity: 1;
 }
 
-.Tutorial-column:first-child p {
-    font-size: 20px;
+.guideMessage {
+    font-size: 18px;
     font-weight: 600;
-    opacity: 0.6;
+    opacity: 0.5;
+}
+
+.guideMessage.active,
+.guideMessage:hover {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    opacity: 1;
 }
 
 .Tutorial-column {
     width: 90%;
 }
 
-.Tutorial-gif {
+.Tutorial-img {
     width: 100%;
     height: auto;
-
+    
     border-radius: 20px 20px;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
 }
 
 .navigateBtn {
-    margin-top: 50px;
+    margin-top: 15px;
     border-radius: 20px;
     border: none;
     padding: 10px 20px;
 
     font-size: 24px;
     font-weight: 600;
-
+    
     color: white;
     background: linear-gradient(45deg, #6ba1ffe6, #0c32f0dc);
 

@@ -5,16 +5,16 @@ import Footer from "./Component/Footer";
 import List from "./Component/style/List";
 import Main from "./Component/Main"
 import Upload from "./Component/style/Upload";
-import Edit from "./Component/style/Edit";
+// import Edit from "./Component/style/Edit";
 import StyleArea from "./Component/style/StyleArea";
-import VoiceCloneArea from "./Component/VoiceClone/VoiceCloneArea";
+// import VoiceCloneArea from "./Component/VoiceClone/VoiceCloneArea";
 
 import firebase from "./firebase";
 import Login from "./Component/user/Login"
 import Register from "./Component/user/Register"
 import Survey from "./Component/Management/Survey";
 import SurveyList from "./Component/Management/SurveyList";
-import Tutorial from "./tutorial/js/tutorial";
+import Tutorial from "./tutorial/js/Tutorial";
 import Update from "./Component/Management/Update";
 import FAQ from "./Component/Management/FAQ";
 import PrivateRoute from "./PrivateRoute";
@@ -47,8 +47,8 @@ function App() {
              <Route path="/upload" element={<Upload/>} />
              <Route path="/list" element={<List/>} />
              <Route path="/style/:styleNum" element={<StyleArea/>} />
-             <Route path="/edit/:styleNum" element={<Edit/>} />
-             <Route path="/voice-clone" element={<VoiceCloneArea/>}/>
+             {/*<Route path="/edit/:styleNum" element={<Edit/>} />*/}
+             {/*<Route path="/voice-clone" element={<VoiceCloneArea/>}/>*/}
              <Route path="/surveylist" element={<SurveyList/>}/>
              <Route path="/survey" element={<Survey/>}/>
              <Route path="/*" element={<Main/>} />

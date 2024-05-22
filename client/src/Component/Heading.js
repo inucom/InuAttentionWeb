@@ -20,11 +20,11 @@ function Heading() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/list"   style={{marginRight:"20px"}}>Image2Voice</Nav.Link>
-                        <Nav.Link href="/voice-clone"   style={{marginRight:"20px"}}>Voice Clone</Nav.Link>
+                        {/*<Nav.Link href="/voice-clone"   style={{marginRight:"20px"}}>Voice Clone</Nav.Link>*/}
                         <Nav.Link href="/survey"   style={{marginRight:"20px"}}>Survey</Nav.Link>
                         <Nav.Link href="/tutorial"   style={{marginRight:"20px"}}>Tutorial</Nav.Link>
                         <Nav.Link href="/faq"   style={{marginRight:"20px"}}>FAQ</Nav.Link>
-                        <Nav.Link href="/update"   style={{marginRight:"20px"}}>Update</Nav.Link>
+                        {/*<Nav.Link href="/update"   style={{marginRight:"20px"}}>Update</Nav.Link>*/}
                     </Nav>
                         {user.accessToken ? (
                             <>

@@ -43,7 +43,7 @@ function Survey() {
             <div>Let us know how we can improve our service</div>
             <br/>
             <br/>
-            <h4>각종 버그, 버그 시 상황, 제안</h4>
+            <h4>의견을 남겨주세요.</h4>
             <div>
                         <textarea rows="10" placeholder="Enter your comment here..."
                                   style={{maxWidth:"900px",width:"90%", margin:"0 auto"}}

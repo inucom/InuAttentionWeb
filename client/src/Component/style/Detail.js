@@ -47,28 +47,14 @@ function Detail(props) {
                 <TtsContentDiv>
                     <div className="modalControl">
                         <h1>{props.StyleInfo.title}</h1>
-                        <h1><span onClick={handleOpenModal}>···</span></h1>
-                        {ModalFlag && (
-                            <div className="modalDiv" ref={ref}>
-                                <Link to={`/edit/${props.StyleInfo.styleNum}`}>
-                                    <p onClick={() => {
-                                        setModalFlag(false);
-                                    }}>
-                                        수정
-                                    </p>
-                                </Link>
-                                <p className="delete" onClick={DeleteHandler}>삭제</p>
-                            </div>
-                        )}
+                        <p className="delete" onClick={DeleteHandler}>삭제</p>
                     </div>
-
                     <div style={{
                         display: "flex",
                         overflowX: "auto",
                         whiteSpace: "nowrap"
                     }}>
                     </div>
-                    {/*<p>{props.StyleInfo.content}</p>*/}
                 </TtsContentDiv>
                     <Carousel>
                         {props.StyleInfo.image && props.StyleInfo.image.map((image, index) => (

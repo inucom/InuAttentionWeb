@@ -12,7 +12,7 @@
 }
 
 .tutorial-header p {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 600;
     margin-bottom: 3%;
 }
@@ -24,18 +24,15 @@
 .tutorial-headerBtns button {
     margin: 0 30px;
 
-    font-size: 24px;
+    font-size: 20px;
     opacity: 0.4;
     border: none;
     background-color: white;
 }
 
-.tutorial-headerBtns button:hover {
+.tutorial-headerBtns button:hover,
+.tutorial-headerBtns button.active {
     cursor: pointer;
-}
-
-.tutorial-headerBtns button:focus,
-.tutorial-headerBtns button:active {
     font-weight: 500;
     opacity: 0.8;
 }

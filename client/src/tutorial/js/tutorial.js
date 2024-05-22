@@ -1,34 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 // css 디렉토리 확인
-import '../css/Tutorial.css'
+import '../css/Tutorial.css';
 
 // js 디렉토리 확인
 import UploadTutorial from "./UploadTutorial";
 import VoiceCloneTutorial from "./VoiceCloneTutorial";
 
 function Tutorial() {
+    const [activeButton, setActiveButton] = useState('upload');
+
     const navigate = useNavigate();
     const location = useLocation();
     const type = location.state?.type;
 
-    const handleUploadClick = () => {
+    const handleUploadClick = (event) => {
+        setActiveButton('upload');
         navigate('/tutorial', { state: { type: 'upload' } });
     };
-    
-    const handleVoiceCloneClick = () => {
+
+    const handleVoiceCloneClick = (event) => {
+        setActiveButton('voiceClone');
         navigate('/tutorial', { state: { type: 'voiceClone' } });
     };
 
     return(
         <div className="tutorial-container">
             <div className="tutorial-header">
-                <p>Here is your Playground</p>
+                <p>Tutorial</p>
                 <div className="tutorial-headerBtns">
-                    <button className="tutorial-uploadBtn" onClick={handleUploadClick}>Upload Tutorial</button>
-                    <button className="tutorial-cloneBtn" onClick={handleVoiceCloneClick}>Voice Clone Tutorial</button>
-
+                    {/*<button className={`tutorial-uploadBtn ${activeButton === 'upload' ? 'active' : ''}`} */}
+                    {/*        onClick={handleUploadClick}>Upload Tutorial*/}
+                    {/*</button>*/}
+                    {/*<button className={`tutorial-cloneBtn ${activeButton === 'voiceClone' ? 'active' : ''}`} */}
+                    {/*        onClick={handleVoiceCloneClick}>Voice Clone Tutorial*/}
+                    {/*</button>*/}
                 </div>
             </div>
             <div>
