@@ -27,16 +27,18 @@ router.post("/submit", async (req, res) => {
                 diff: style.diffusion,
                 statusCode: 1}]
         }
-
-        // console.log(data);
         const manage = await Manage.findOne({ identifier: 1 }).exec();
 
         const response = await axios.post(manage.URL, data);
-        console.log(response.data);
-        // NewTts.voiceData = response.data;
-        //
-        // await NewTts.save();
-        // return res.status(200).json({ success: true });
+        // console.log(response.data.data[0].audio);
+
+        const audioFileName = response.data.data[0].audio;
+        const baseURL = "https://kr.object.ncloudstorage.com/inu-attention/TTS/";
+
+        NewTts.audio = `${baseURL}${audioFileName}`;
+
+        await NewTts.save();
+        return res.status(200).json({ success: true });
     } catch (err) {
         console.error(err);
         return res.status(400).json({ success: false });

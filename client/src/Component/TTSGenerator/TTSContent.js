@@ -33,7 +33,8 @@ function TTSContent(props) {
                                 <h4><span className="delete" onClick={(e)=>
                                     DeleteHandler(e)}>🗑</span></h4>
                             </div>
-                <audio src="https://ccrma.stanford.edu/~jos/mp3/harpsi-cs.mp3" controls
+                {/*<audio src="https://ccrma.stanford.edu/~jos/mp3/harpsi-cs.mp3" controls*/}
+                <audio src={props.tts.audio} controls
                 style={{ width: '100%',
                     marginTop :"10px"
                 }}></audio>

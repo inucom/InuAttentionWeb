@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const ttsSchema = new mongoose.Schema({
     text:String,
     ttsNum:Number,
-    voiceData:String,
+    audio:String,
     styleId: {
         type: mongoose.Schema.Types.ObjectId,
         ref:"Style",
