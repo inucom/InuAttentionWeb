@@ -3,72 +3,76 @@ const {Counter} = require("../Model/Counter");
 const {Style} = require("../Model/Style");
 const {User} = require("../Model/User");
 const {Tts} = require("../Model/Tts");
+const {Manage} = require("../Model/Manage");
+const axios = require("axios");
+
 const router = express.Router();
 const setUpload = require("../Util/upload");
-
-// router.post("/submit", async (req, res) => {
-//     let temp = {
-//         title: req.body.title,
-//         image: req.body.image,
-//     };
-//     const data = {
-//         images: req.body.image,
-//         title: req.body.title,
-//         statusCode: 1
-//     };
-//
-//     try {
-//         const manage = await Manages.findOne({ identifier: 1 }).exec();
-//
-//         const response = await axios.post(manage.URL, data);
-//         console.log('생성된 스타일 벡터 :', response.data);
-//         temp.voiceVector = response.data;
-//
-//         const counter = await Counter.findOne({ name: "counter" }).exec();
-//         temp.styleNum = counter.styleNum;
-//
-//         const userInfo = await User.findOne({ uid: req.body.uid }).exec();
-//         temp.author = userInfo._id;
-//
-//         const VoiceStyle = new Style(temp);
-//         await VoiceStyle.save();
-//
-//         await Counter.updateOne({ name: "counter" }, { $inc: { styleNum: 1 } });
-//
-//         res.status(200).json({ success: true });
-//     } catch (err) {
-//         console.error(err);
-//         res.status(400).json({ success: false });
-//     }
-// });
-
-router.post("/submit", (req, res) => {
+router.post("/submit", async (req, res) => {
     let temp = {
-        title:req.body.title,
-        image : req.body.image,
+        title: req.body.title,
+        image: req.body.image,
     };
-    Counter.findOne({name: "counter"})
-        .exec()
-        .then((counter) => {
-            temp.styleNum = counter.styleNum;
-            User.findOne({uid:req.body.uid}).exec().then((userInfo)=>{
-                temp.author = userInfo._id;
-                const VoiceStyle = new Style(temp);
-                VoiceStyle.save().then(() => {
-                    Counter.updateOne(
-                        {name: "counter"},
-                        {$inc: {styleNum: 1}})
-                        .then(() => {
-                                res.status(200).json({success: true});
-                            }
-                        );
-                });
-            })
-        })
-        .catch((err) => {
-            res.status(400).json({success: false});
-        });
+    const data = {
+        data:  [{
+            images: req.body.image,
+            statusCode: 0}]
+    }
+    try {
+        const manage = await Manage.findOne({ identifier: 1 }).exec();
+
+        // console.log(manage);
+
+        const response = await axios.post(manage.URL, data);
+
+        const counter = await Counter.findOne({ name: "counter" }).exec();
+        temp.styleNum = counter.styleNum;
+        const userInfo = await User.findOne({ uid: req.body.uid }).exec();
+        temp.author = userInfo._id;
+        //console.log(response.data.data[0].auto);
+        temp.auto = response.data.data[0].auto   ;
+        temp.diffusion = response.data.data[0].diffusion;
+        const VoiceStyle = new Style(temp);
+        await VoiceStyle.save();
+
+        await Counter.updateOne({ name: "counter" }, { $inc: { styleNum: 1 } });
+
+        // console.log(VoiceStyle);
+
+        res.status(200).json({ success: true });
+    } catch (err) {
+        console.error(err);
+        res.status(400).json({ success: false });
+    }
 });
+
+// router.post("/submit", (req, res) => {
+//     let temp = {
+//         title:req.body.title,
+//         image : req.body.image,
+//     };
+//     Counter.findOne({name: "counter"})
+//         .exec()
+//         .then((counter) => {
+//             temp.styleNum = counter.styleNum;
+//             User.findOne({uid:req.body.uid}).exec().then((userInfo)=>{
+//                 temp.author = userInfo._id;
+//                 const VoiceStyle = new Style(temp);
+//                 VoiceStyle.save().then(() => {
+//                     Counter.updateOne(
+//                         {name: "counter"},
+//                         {$inc: {styleNum: 1}})
+//                         .then(() => {
+//                                 res.status(200).json({success: true});
+//                             }
+//                         );
+//                 });
+//             })
+//         })
+//         .catch((err) => {
+//             res.status(400).json({success: false});
+//         });
+// });
 
 router.post("/list", async (req, res) => {
     try {

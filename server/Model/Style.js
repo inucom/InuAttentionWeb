@@ -4,6 +4,8 @@ const styleSchema = new mongoose.Schema({
     title:String,
     styleNum:Number,
     image:[String],
+    auto:[[Number]],
+    diffusion:[[Number]],
     author:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
