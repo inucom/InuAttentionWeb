@@ -15,6 +15,7 @@ app.use("/api/style", require("./server/Router/Style"));
 app.use("/api/user", require("./server/Router/User"));
 app.use("/api/tts", require("./server/Router/Tts"));
 app.use("/api/survey", require("./server/Router/Survey"));
+app.use("/api/manage", require("./server/Router/Manage"));
 
 app.listen(port, () => {
     mongoose.connect(
