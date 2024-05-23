@@ -30,9 +30,9 @@ function Heading() {
                             <>
                                 <NavDropdown.Divider />
                                 <NavDropdown title={user.displayName} id="basic-nav-dropdown">
-                                    <NavDropdown.Item href="/">Profile</NavDropdown.Item>
-                                    <NavDropdown.Item href="/">Settings</NavDropdown.Item>
-                                    <NavDropdown.Divider />
+                                    {/*<NavDropdown.Item href="/">Profile</NavDropdown.Item>*/}
+                                    {/*<NavDropdown.Item href="/">Settings</NavDropdown.Item>*/}
+                                    {/*<NavDropdown.Divider />*/}
                                     <NavDropdown.Item onClick={() => logoutHandler()} href="/">
                                         Logout
                                     </NavDropdown.Item>

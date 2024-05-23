@@ -32,11 +32,11 @@ function Detail(props) {
             axios.post("/api/style/delete", body)
                 .then((res) => {
                     if (res.data.success) {
-                        alert("게시글이 삭제되었습니다.");
+                        alert("삭제되었습니다.");
                         navigate("/list");
                     }
                 }).catch((err) => {
-                alert("게시글 삭제에 실패하였습니다.");
+                alert("삭제에 실패하였습니다.");
             })
         }
     }

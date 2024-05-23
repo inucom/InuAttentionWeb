@@ -25,13 +25,13 @@ function Main() {
             </div>
 
             <div className="right40">
-                <button onClick={() => window.location.href="/register"} className="formbold-browse">회원가입</button>
+                <button onClick={() => window.location.href="/register"} className="formbold-browse">Register</button>
                 <br/>
-                <button onClick={() => window.location.href="/login"} className="formbold-browse">로그인</button>
+                <button onClick={() => window.location.href="/login"} className="formbold-browse">Login</button>
                 <br/>
-                <button onClick={() => window.location.href="/tutorial"} className="formbold-browse">사용법</button>
+                <button onClick={() => window.location.href="/tutorial"} className="formbold-browse">Tutorial</button>
                 <br/>
-                <button onClick={() => window.location.href="/preview"} className="formbold-browse">미리보기</button>
+                <button onClick={() => window.location.href="/faq"} className="formbold-browse">FAQ</button>
                 <br/>
             </div>
 

@@ -59,7 +59,7 @@ function UploadTutorial() {
             </p>
             <p className={getGuideMessageClass(2)}
                onClick={() => handleGuideClick(2)}>
-              2. 원하는 스타일 프로젝트의 이름과 사진을 최대 5개 선택해주세요.
+              2. 원하는 스타일 프로젝트의 이름과 사진을 최대 5개 입력해주세요.
             </p>
             <p className={getGuideMessageClass(3)}
                onClick={() => handleGuideClick(3)}>
