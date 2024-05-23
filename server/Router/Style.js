@@ -39,7 +39,7 @@ router.post("/submit", async (req, res) => {
 
         // console.log(VoiceStyle);
 
-        res.status(200).json({ success: true });
+        res.status(200).json({ success: true, styleNum:counter.styleNum });
     } catch (err) {
         console.error(err);
         res.status(400).json({ success: false });
