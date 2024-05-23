@@ -6,6 +6,42 @@ const {Tts} = require("../Model/Tts");
 const router = express.Router();
 const setUpload = require("../Util/upload");
 
+// router.post("/submit", async (req, res) => {
+//     let temp = {
+//         title: req.body.title,
+//         image: req.body.image,
+//     };
+//     const data = {
+//         images: req.body.image,
+//         title: req.body.title,
+//         statusCode: 1
+//     };
+//
+//     try {
+//         const manage = await Manages.findOne({ identifier: 1 }).exec();
+//
+//         const response = await axios.post(manage.URL, data);
+//         console.log('생성된 스타일 벡터 :', response.data);
+//         temp.voiceVector = response.data;
+//
+//         const counter = await Counter.findOne({ name: "counter" }).exec();
+//         temp.styleNum = counter.styleNum;
+//
+//         const userInfo = await User.findOne({ uid: req.body.uid }).exec();
+//         temp.author = userInfo._id;
+//
+//         const VoiceStyle = new Style(temp);
+//         await VoiceStyle.save();
+//
+//         await Counter.updateOne({ name: "counter" }, { $inc: { styleNum: 1 } });
+//
+//         res.status(200).json({ success: true });
+//     } catch (err) {
+//         console.error(err);
+//         res.status(400).json({ success: false });
+//     }
+// });
+
 router.post("/submit", (req, res) => {
     let temp = {
         title:req.body.title,
