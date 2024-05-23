@@ -9,6 +9,8 @@ router.post("/updateURL", (req,res) => {
     Manage.findOneAndUpdate(
         {identifier:1},
         {URL: req.body.URL}).exec();
+
+        return res.status(200).json({success:true});
     } catch (err){
         return res.status(400).json({success:false});
     }
