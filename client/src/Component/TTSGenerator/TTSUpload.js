@@ -33,7 +33,8 @@ function TTSUpload(props) {
         <div className="formbold-mb-5 flex">
             {isLoading ? (
                 <div className="loader">
-                    <p><br/>생성중입니다...</p>
+                    <p><br/>생성중입니다...
+                    </p>
                 </div>
             ) : (
                 <>

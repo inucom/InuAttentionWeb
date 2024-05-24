@@ -7,41 +7,43 @@ const axios = require("axios");
 
 router.post("/submit", async (req, res) => {
     try {
-        let temp = {
-            text: req.body.text,
-            styleId: req.body.styleId,
-        };
-        const NewTts = new Tts(temp);
+        const { text, styleId } = req.body;
 
-        const style = await Style.findOneAndUpdate(
-            { _id: req.body.styleId },
-            { $inc: { ttsNum: 1 } }
-        ).exec();
+        const newTts = new Tts({ text, styleId });
 
-        NewTts.ttsNum = style.ttsNum;
+        const [style, manage] = await Promise.all([
+            Style.findOneAndUpdate(
+                { _id: styleId },
+                { $inc: { ttsNum: 1 } },
+                { new: true }
+            ).exec(),
+            Manage.findOne({ identifier: 1 }).exec()
+        ]);
 
-        const data = {
-            data:  [{
-                text: req.body.text,
+        newTts.ttsNum = style.ttsNum;
+
+        const requestData = {
+            data: [{
+                text,
                 auto: style.auto,
                 diff: style.diffusion,
-                statusCode: 1}]
-        }
-        const manage = await Manage.findOne({ identifier: 1 }).exec();
+                statusCode: 1
+            }]
+        };
 
-        const response = await axios.post(manage.URL, data);
-        // console.log(response.data.data[0].audio);
+        const response = await axios.post(manage.URL, requestData);
 
         const audioFileName = response.data.data[0].audio;
         const baseURL = "https://kr.object.ncloudstorage.com/inu-attention/TTS/";
 
-        NewTts.audio = `${baseURL}${audioFileName}`;
+        newTts.audio = `${baseURL}${audioFileName}`;
 
-        await NewTts.save();
+        await newTts.save();
+
         return res.status(200).json({ success: true });
     } catch (err) {
-        console.error(err);
-        return res.status(400).json({ success: false });
+        console.error("Error processing TTS request:", err);
+        return res.status(400).json({ success: false});
     }
 });
 
