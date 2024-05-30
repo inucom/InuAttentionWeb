@@ -34,13 +34,13 @@ function Main() {
                     </div>
                 </div>
                 <div className="item">
-                    WOW Thrall
-                    <img src="https://kr.object.ncloudstorage.com/inu-attention/main/thrall_img.jpg" alt="Thrall" className="image" />
+                    Professor X
+                    <img src="https://inu-attention.kr.object.ncloudstorage.com/style/1717086885603A16.JPEG" alt="Thrall" className="image" />
                     <div className="audio-container">
                         Generated
-                        <audio src="https://kr.object.ncloudstorage.com/inu-attention/main/thrall_gene.wav" controls></audio>
-                        Original
-                        <audio src="https://kr.object.ncloudstorage.com/inu-attention/main/thrall_ori.ogg" controls></audio>
+                        <audio src="https://kr.object.ncloudstorage.com/inu-attention/TTS/0530163040.wav" controls></audio>
+                        Generated2
+                        <audio src="https://kr.object.ncloudstorage.com/inu-attention/TTS/0530163141.wav" controls></audio>
                     </div>
                 </div>
                 <div className="item">
