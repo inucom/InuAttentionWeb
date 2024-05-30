@@ -34,20 +34,20 @@
 }
 
 .item {
-    flex: 1;
-    margin: 20px;
+    width: 30%;
+    margin: 1%;
     display: flex;
     flex-direction: column;
-
     align-items: center;
+    text-align: center;
 }
 
 .image {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border: 3px solid #ccc; /* Border 추가 */
-    border-radius: 30px; /* 약간 둥글게 설정 */
+    width: 200px;
+    height: 200px;
+    object-fit: none;
+    border: 3px solid #ccc;
+    border-radius: 30px;
 }
 
 .audio-container {
@@ -55,6 +55,5 @@
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    max-width: 300px;
     margin-top: 10px;
 }

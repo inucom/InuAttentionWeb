@@ -1,8 +1,5 @@
 import React from 'react';
 
-import '../css/TutorialDetail.css';
-
-
 function VoiceCloneTutorial() {
 
   return (

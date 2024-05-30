@@ -20,6 +20,9 @@ function FAQ() {
                 <h3>웹페이지 소스코드</h3>
                 <a href="https://github.com/inucom/InuAttentionWeb">https://github.com/inucom/InuAttentionWeb</a><br/><br/>
 
+                <h3>모바일</h3>
+                모바일 환경은 지원하지 않습니다.<br/><br/>
+
 
                 <h3>기타 문의사항</h3>
                 기타 문의사항은 inuattention@gmail.com 이메일로 문의주세요.<br/><br/>
