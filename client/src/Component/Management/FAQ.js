@@ -3,7 +3,14 @@ import React from "react";
 function FAQ() {
 
     return (
-        <div className="container">
+        <div className="container"
+             style={{
+                 display: "flex",
+                 flexDirection: "column",
+                 justifyContent: "center",
+                 alignItems: "center",
+                 textAlign: "center",
+             }}>
 
             <p><br/>
                 <br/>

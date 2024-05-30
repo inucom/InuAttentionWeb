@@ -21,9 +21,9 @@ function Heading() {
                     <Nav className="me-auto">
                         <Nav.Link href="/list"   style={{marginRight:"20px"}}>Image2Voice</Nav.Link>
                         {/*<Nav.Link href="/voice-clone"   style={{marginRight:"20px"}}>Voice Clone</Nav.Link>*/}
-                        <Nav.Link href="/survey"   style={{marginRight:"20px"}}>Survey</Nav.Link>
                         <Nav.Link href="/tutorial"   style={{marginRight:"20px"}}>Tutorial</Nav.Link>
                         <Nav.Link href="/faq"   style={{marginRight:"20px"}}>FAQ</Nav.Link>
+
                         {/*<Nav.Link href="/update"   style={{marginRight:"20px"}}>Update</Nav.Link>*/}
                     </Nav>
                         {user.accessToken ? (
@@ -31,8 +31,8 @@ function Heading() {
                                 <NavDropdown.Divider />
                                 <NavDropdown title={user.displayName} id="basic-nav-dropdown">
                                     {/*<NavDropdown.Item href="/">Profile</NavDropdown.Item>*/}
-                                    {/*<NavDropdown.Item href="/">Settings</NavDropdown.Item>*/}
-                                    {/*<NavDropdown.Divider />*/}
+                                    <NavDropdown.Item href="/survey">Survey</NavDropdown.Item>
+                                    <NavDropdown.Divider />
                                     <NavDropdown.Item onClick={() => logoutHandler()} href="/">
                                         Logout
                                     </NavDropdown.Item>
