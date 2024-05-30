@@ -5,47 +5,96 @@ const {Tts} = require("../Model/Tts");
 const {Manage} = require("../Model/Manage");
 const axios = require("axios");
 
+
 router.post("/submit", async (req, res) => {
     try {
         const { text, styleId } = req.body;
 
         const newTts = new Tts({ text, styleId });
 
-        const [style, manage] = await Promise.all([
-            Style.findOneAndUpdate(
-                { _id: styleId },
-                { $inc: { ttsNum: 1 } },
-                { new: true }
-            ).exec(),
-            Manage.findOne({ identifier: 1 }).exec()
-        ]);
+        res.status(200).json({ success: true });
 
-        newTts.ttsNum = style.ttsNum;
+        (async () => {
+            try {
+                const [style, manage] = await Promise.all([
+                    Style.findOneAndUpdate(
+                        { _id: styleId },
+                        { $inc: { ttsNum: 1 } },
+                        { new: true }
+                    ).exec(),
+                    Manage.findOne({ identifier: 1 }).exec()
+                ]);
 
-        const requestData = {
-            data: [{
-                text,
-                auto: style.auto,
-                diff: style.diffusion,
-                statusCode: 1
-            }]
-        };
+                newTts.ttsNum = style.ttsNum;
 
-        const response = await axios.post(manage.URL, requestData);
+                const requestData = {
+                    data: [{
+                        text,
+                        auto: style.auto,
+                        diff: style.diffusion,
+                        statusCode: 1
+                    }]
+                };
 
-        const audioFileName = response.data.data[0].audio;
-        const baseURL = "https://kr.object.ncloudstorage.com/inu-attention/TTS/";
+                const response = await axios.post(manage.URL, requestData);
 
-        newTts.audio = `${baseURL}${audioFileName}`;
+                const audioFileName = response.data.data[0].audio;
+                const baseURL = "https://kr.object.ncloudstorage.com/inu-attention/TTS/";
 
-        await newTts.save();
+                newTts.audio = `${baseURL}${audioFileName}`;
 
-        return res.status(200).json({ success: true });
+                await newTts.save();
+            } catch (err) {
+                console.error(err);
+            }
+        })();
     } catch (err) {
-        console.error("Error processing TTS request:", err);
-        return res.status(400).json({ success: false});
+        console.error(err);
+        res.status(400).json({ success: false });
     }
 });
+
+// router.post("/submit", async (req, res) => {
+//     try {
+//         const { text, styleId } = req.body;
+//
+//         const newTts = new Tts({ text, styleId });
+//
+//         const [style, manage] = await Promise.all([
+//             Style.findOneAndUpdate(
+//                 { _id: styleId },
+//                 { $inc: { ttsNum: 1 } },
+//                 { new: true }
+//             ).exec(),
+//             Manage.findOne({ identifier: 1 }).exec()
+//         ]);
+//
+//         newTts.ttsNum = style.ttsNum;
+//
+//         const requestData = {
+//             data: [{
+//                 text,
+//                 auto: style.auto,
+//                 diff: style.diffusion,
+//                 statusCode: 1
+//             }]
+//         };
+//
+//         const response = await axios.post(manage.URL, requestData);
+//
+//         const audioFileName = response.data.data[0].audio;
+//         const baseURL = "https://kr.object.ncloudstorage.com/inu-attention/TTS/";
+//
+//         newTts.audio = `${baseURL}${audioFileName}`;
+//
+//         await newTts.save();
+//
+//         return res.status(200).json({ success: true });
+//     } catch (err) {
+//         console.error("Error processing TTS request:", err);
+//         return res.status(400).json({ success: false});
+//     }
+// });
 
 // router.post("/submit", async (req, res) => {
 //     try {
