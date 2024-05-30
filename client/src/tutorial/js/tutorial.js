@@ -35,9 +35,9 @@ function Tutorial() {
                     <button className={`tutorial-uploadBtn ${activeButton === 'upload' ? 'active' : ''}`}
                             onClick={handleUploadClick}>How to use
                     </button>
-                    <button className={`tutorial-cloneBtn ${activeButton === 'voiceClone' ? 'active' : ''}`}
-                            onClick={handleVoiceCloneClick}>Preview
-                    </button>
+                    {/*<button className={`tutorial-cloneBtn ${activeButton === 'voiceClone' ? 'active' : ''}`}*/}
+                    {/*        onClick={handleVoiceCloneClick}>Preview*/}
+                    {/*</button>*/}
                 </div>
             </div>
             <div>
