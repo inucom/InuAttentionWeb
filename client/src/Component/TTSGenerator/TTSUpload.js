@@ -24,7 +24,7 @@ function TTSUpload(props) {
             }
         }).catch((err) => {
             setIsLoading(false); // 로딩 상태 종료
-            alert("에러가 발생했습니다. 다시 시도해주세요.");
+            // alert("에러가 발생했습니다. 다시 시도해주세요.");
             console.log(err);
         });
     };
