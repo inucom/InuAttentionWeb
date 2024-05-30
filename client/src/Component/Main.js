@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../StyleCSS/Grid.css";
 
 function Main() {
@@ -7,8 +6,7 @@ function Main() {
         <>
             <br/>
             <br/>
-        <div className="container">
-            <div className="left60"
+        <div className="container"
                  style={{
                 display: "flex",
                 flexDirection: "column",
@@ -22,20 +20,9 @@ function Main() {
             <br/>
             <br/>
             <p>Image2Voice는 <br/>이미지를 분석하여 사용자 개인만의 유일한 음성을 생성하는<br/>서비스를 제공합니다.</p>
-            </div>
-
-            <div className="right40">
-                <button onClick={() => window.location.href="/register"} className="formbold-browse">Register</button>
-                <br/>
-                <button onClick={() => window.location.href="/login"} className="formbold-browse">Login</button>
-                <br/>
-                <button onClick={() => window.location.href="/tutorial"} className="formbold-browse">Tutorial</button>
-                <br/>
-                <button onClick={() => window.location.href="/faq"} className="formbold-browse">FAQ</button>
-                <br/>
-            </div>
 
         </div>
+
         </>
     );
 }

@@ -28,14 +28,16 @@ function Tutorial() {
     return(
         <div className="tutorial-container">
             <div className="tutorial-header">
+                <br/>
+                <br/>
                 <p>Tutorial</p>
                 <div className="tutorial-headerBtns">
-                    {/*<button className={`tutorial-uploadBtn ${activeButton === 'upload' ? 'active' : ''}`} */}
-                    {/*        onClick={handleUploadClick}>Upload Tutorial*/}
-                    {/*</button>*/}
-                    {/*<button className={`tutorial-cloneBtn ${activeButton === 'voiceClone' ? 'active' : ''}`} */}
-                    {/*        onClick={handleVoiceCloneClick}>Voice Clone Tutorial*/}
-                    {/*</button>*/}
+                    <button className={`tutorial-uploadBtn ${activeButton === 'upload' ? 'active' : ''}`}
+                            onClick={handleUploadClick}>How to use
+                    </button>
+                    <button className={`tutorial-cloneBtn ${activeButton === 'voiceClone' ? 'active' : ''}`}
+                            onClick={handleVoiceCloneClick}>Preview
+                    </button>
                 </div>
             </div>
             <div>

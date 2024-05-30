@@ -4,22 +4,17 @@ import { useNavigate } from 'react-router-dom';
 // css 디렉토리 확인
 import '../css/TutorialDetail.css';
 
-// 이미지 파일 디렉토리 확인
-import img2voice1 from '../img/img2voice1.png';
-import img2voice2 from '../img/img2voice2.png';
-import img2voice3 from '../img/img2voice3.png';
-import img2voice4 from '../img/img2voice4.png';
-import img2voice5 from '../img/img2voice5.png';
 
 function UploadTutorial() {
-  const [imgSrc, setImgSrc] = useState(img2voice1);
-  const [clickedGuide, setClickedGuide] = useState(1)
-  const navigate = useNavigate();
 
-  // 이미지 업로드 라우팅 맞는지 몰라서 일단 해놨습니다.
-  const navigateImgUploadPage = () => {
-    navigate('/upload');
-  };
+    const img2voice1 = 'https://kr.object.ncloudstorage.com/inu-attention/main/img2voice1.png';
+    const img2voice2 = 'https://kr.object.ncloudstorage.com/inu-attention/main/img2voice2.png';
+    const img2voice3 = 'https://kr.object.ncloudstorage.com/inu-attention/main/img2voice3.png';
+    const img2voice4 = 'https://kr.object.ncloudstorage.com/inu-attention/main/img2voice4.png';
+    const img2voice5 = 'https://kr.object.ncloudstorage.com/inu-attention/main/img2voice5.png';
+  const [imgSrc, setImgSrc] = useState(img2voice1);
+  const [clickedGuide, setClickedGuide] = useState(1);
+
 
   const handleGuideClick = (guideNumber) => {
     setClickedGuide(guideNumber);
@@ -73,7 +68,6 @@ function UploadTutorial() {
                onClick={() => handleGuideClick(5)}>
               5.Details 버튼을 눌러 생성된 결과를 확인해보세요.
             </p>
-            <button className='navigateBtn' onClick={navigateImgUploadPage}>Start</button>
         </div>
         <div className='Tutorial-column'>
           <img className='Tutorial-img' src={imgSrc} alt='Img2Voice Tutorial.gif'/>
