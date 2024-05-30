@@ -1,5 +1,6 @@
 import React from "react";
 import "../StyleCSS/Grid.css";
+import Preview from "../tutorial/js/VoiceCloneTutorial"
 
 function Main() {
     return (
@@ -21,6 +22,7 @@ function Main() {
             <br/>
             <p>Image2Voice는 <br/>이미지를 분석하여 사용자 개인만의 유일한 음성을 생성하는<br/>서비스를 제공합니다.</p>
 
+            <Preview/>
         </div>
 
         </>
